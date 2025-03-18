@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        h1{
+            text-align: center;
+            color: red;
+            text-decoration: underline green;
+        }
+        h3{
+            color: blue;
+            text-align: center;
+        }
+        .div{
+            border: 2px green solid;
+            height: 200vh;
+
+        }
+        h2{
+            color: brown;
+        }
+        b{
+            color: rgb(10, 131, 131);
+            font-size: 20px;
+        }
+        li{
+            color: rgb(255, 94, 0);
+        }
+        p{
+            color: green;
+        }
+        span{
+            color: rgb(255, 166, 0);
+        }
+    </style>
+    </head>
+  <body>
+    <h1>DOM (Document Object Model)</h1>
+    <h3>The **DOM (Document Object Model)** in JavaScript is a programming interface for web documents. <br> It represents the structure of a web page as a tree of nodes, where each node is an object corresponding to a part of the page. <br> The DOM allows JavaScript to interact with and manipulate the page’s structure, content, and styles dynamically.</h3>
+<div class="div">
+<h2>Key Concepts of DOM:</h2>
+
+ <b>Document Object Model (DOM)</b>
+   <li>The DOM is essentially a hierarchical tree structure that represents an HTML or XML document.</li>
+   <li>Every element, attribute, and piece of text in an HTML document is represented as a node in this tree.</li>
+   <li>The DOM provides an interface for manipulating these nodes.</li>
+
+
+   <p>Will be represented in the DOM like this: <br>
+
+   Document <br>
+     └─ HTML <br>
+         └─ BODY <br>
+             └─ DIV (id="container") <br>
+                 └─ P <br>
+                     └─ TextNode ("Hello, world!")</p>
+
+<b>DOM Tree</b>
+   <li>The DOM structure is often visualized as a tree, where:</li>
+   <li>he **root** of the tree is the `document` object.</li>
+   <li>**Branches** are elements like `html`, `body`, `div`, etc.</li>
+   <li>**Leaves** are text nodes (the content within the tags).</li>
+
+<h1>Core Operations in the DOM:</h1>
+
+<h2>Selecting Elements:</h2>
+<li>You need to select elements to manipulate them using JavaScript.</li>
+
+<p>`document.getElementById(id)`**: Selects an element by its ID.</p>
+<p>`document.getElementsByClassName(className)`**: Selects elements by their class name.</p>
+<p>`document.getElementsByTagName(tagName)`**: Selects elements by their tag name.</p>
+<p>`document.querySelector(selector)`**: Selects the first element matching a CSS selector.</p>
+<p>`document.querySelectorAll(selector)`**: Selects all elements matching a CSS selector.</p>
+<span>
+let element = document.getElementById("myElement");  // Select by ID
+let allDivs = document.getElementsByTagName("div");  // Select all div elements
+let firstButton = document.querySelector("button");  // Select first button element
+</span>
+
+<h2>Modifying Content:</h2>
+<li>You can change the content inside selected elements.</li>
+
+<p>`innerHTML`**: Changes the HTML content inside an element.</p>
+<p>`textContent`**: Changes the text content of an element.</p>
+
+<span>
+element.innerHTML = "New HTML Content";  // Replace inner HTML
+element.textContent = "New Text Content";  // Replace text content
+</span>
+
+<h2>Modifying Attributes:</h2>
+<li>You can modify the attributes of elements.</li>
+
+<p>`getAttribute(attributeName)`**: Retrieves the value of an attribute.</p>
+<p>`setAttribute(attributeName, value)`**: Sets the value of an attribute.</p>
+<p>`removeAttribute(attributeName)`**: Removes an attribute.</p>
+
+<span>
+let srcValue = element.getAttribute("src"); // Get the 'src' attribute
+element.setAttribute("src", "new-image.jpg");  // Change the 'src' attribute
+element.removeAttribute("class");  // Remove the 'class' attribute
+</span>
+
+<h2>>Modifying Styles:</h2>
+<li>You can manipulate the CSS styles of elements.</li>
+
+<p>`style`**: Modifies the inline styles of an element.</p>
+
+<span>
+element.style.color = "red";  // Set the text color to red
+element.style.fontSize = "20px";  // Change font size to 20px
+</span>
+
+<h2>Creating and Adding New Elements:</h2>
+<li>You can create new elements and add them to the DOM.</li>
+
+- **`document.createElement(tagName)`**: Creates a new element.
+- **`element.appendChild(child)`**: Adds a child element to an existing element.
+- **`element.insertBefore(newElement, referenceElement)`**: Inserts a new element before a reference element.
+
+```javascript
+let newDiv = document.createElement("div");
+newDiv.textContent = "I am a new div!";
+document.body.appendChild(newDiv);  // Add the new div to the body
+```
+
+#### 6. **Removing Elements**:
+You can remove elements from the DOM.
+
+- **`parentElement.removeChild(child)`**: Removes a child element from the parent.
+- **`element.remove()`**: Removes the element from the DOM.
+
+```javascript
+let element = document.getElementById("removeMe");
+element.remove();  // Removes the element from the DOM
+```
+
+#### 7. **Event Handling**:
+JavaScript can respond to user interactions by attaching event listeners to elements.
+
+- **`addEventListener(event, function)`**: Attaches an event listener to an element.
+- **`removeEventListener(event, function)`**: Removes an event listener from an element.
+
+```javascript
+let button = document.getElementById("myButton");
+
+button.addEventListener("click", function() {
+  alert("Button clicked!");
+});
+
+button.removeEventListener("click", function() {
+  alert("Button clicked!");
+});
+```
+
+#### 8. **Traversing the DOM**:
+You can navigate through the DOM tree to access different elements.
+
+- **`parentNode`**: Access the parent of an element.
+- **`childNodes`**: Access all child nodes (including text nodes).
+- **`firstChild` / `lastChild`**: Access the first or last child node.
+- **`nextSibling` / `previousSibling`**: Access the next or previous sibling element.
+
+```javascript
+let div = document.getElementById("container");
+let parent = div.parentNode;  // Get parent element
+let firstChild = div.firstChild;  // Get first child element
+let nextSibling = div.nextSibling;  // Get next sibling element
+```
+
+### Example: DOM Manipulation in Action
+Here’s a complete example where we:
+1. Create a new paragraph element.
+2. Add it to the DOM.
+3. Modify its content and style.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Example</title>
+</head>
+<body>
+  <h1>DOM Manipulation Example</h1>
+  <div id="content"></div>
+
+  <script>
+    // Create a new paragraph
+    let newPara = document.createElement("p");
+    
+    // Set the text content
+    newPara.textContent = "This is a dynamically created paragraph!";
+    
+    // Modify the style
+    newPara.style.color = "blue";
+    newPara.style.fontSize = "18px";
+    
+    // Append it to the div with id 'content'
+    let contentDiv = document.getElementById("content");
+    contentDiv.appendChild(newPara);
+  </script>
+</body>
+</html>
+```
+
+### Summary:
+- The DOM provides a way for JavaScript to access and manipulate the content, structure, and style of a web page.
+- JavaScript can modify the DOM in response to events, user input, and other actions, making web pages interactive and dynamic.
+- Understanding how to navigate, select, modify, and remove DOM elements is crucial for effective web development.
+
+Let me know if you'd like to dive deeper into any of these topics or need further examples!
+</div>
+  </body>
+ 
+</html>
