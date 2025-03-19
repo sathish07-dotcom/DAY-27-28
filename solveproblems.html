@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>problems on dom</title>
+    <style>
+        .container{
+            height: 100vh;
+            border: 2px green solid;
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        let para = document.createElement('p');
+        para.innerText = "Hey I'm red!";
+        para.style.color= "red";
+        document.querySelector('.container').appendChild(para);
+
+        let hThree = document.createElement('h3');
+        hThree.innerText = "Hey I'm blue!";
+        hThree.style.color= "blue";
+        document.querySelector('.container').appendChild(hThree);
+
+        let div = document.createElement("div");
+        div.style.border = "2px black solid";
+        div.style.height =" 16vh";
+        div.style.width ="40%";
+        div.style.backgroundColor ="pink";
+        document.querySelector('.container').appendChild(div);
+
+        let hOne = document.createElement("h1");
+        hOne.innerHTML = "am in a div";
+        document.querySelector('div');
+        div.appendChild(hOne);
+
+        let para_1 = document.createElement("p");
+        para_1.innerHTML = "ME TOO";
+        div.appendChild(para_1);
+
+        let h_1 = document.createElement('h1');
+        h_1.innerHTML = "DOM Practice";
+        div.appendChild(h_1);
+
+
+        let para1 = document.createElement('p');
+        para1.innerHTML = "Apna College Delta Practice";
+        para1.style.fontWeight ="bold";
+        div.appendChild(para1);
+
+        let input =document.createElement('input');
+        let btn =document.createElement('button');
+        btn.innerHTML ="Click me";
+        btn.style.backgroundColor="blue";
+        btn.style.color ="white";
+        btn.setAttribute("id","btn");
+        input.setAttribute("placeholder","Enter User Name")
+        div.appendChild(input);
+        div.appendChild(btn);
+
+       
+
+        
+
+
+
+
+
+       
+    </script>
+</body>
+</html>
+style>
+        .div{
+            border: 2px red solid;
+            background: whitesmoke;
+            height: 70vh;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="class"></div>
+    <h1>hi</h1>
+    <h1>hi</h1>
+    <h1>hi</h1>
+    <h1>hi</h1>
+    <p class="sa">Lorem ipsum dolor sit amet.</p>
+    <p id="title">Lorem ipsum dolor sit amet.</p>
+    <p id="titles">Lorem ipsum dolor sit amet.</p>
+    <p id="titles">Lorem ipsum dolor sit amet.</p>
+    
+ 
+
+    <button id =btn>Submit</button>
+    <div class="div">
+        <h1>Skills</h1>
+        <ul>
+            <li>html</li>
+            <li>html</li>
+            <li>html</li>
+            <li>html</li>
+        </ul>
+    </div>
+    <script>
+        let button = document.getElementById("btn");
+        button.textContent = "add";
+        button.style.color ="white";
+        button.style.backgroundColor ="red";
+        button.style.fontSize =" 30px";
+        button.style.padding = " 3px 30px";
+        button.style.borderRadius = "20px";
+       
+     //ACCESSING BY ID_NAME
+        let str1 = document.getElementById("title");
+        str1.innerHTML = "sagar";
+        str1.textContent = "i love you";
+       
+        str1.style.backgroundColor = "red";
+        str1.style.color ="white";
+        str1.style.textAlign ="center";
+        console.log(str1);
+
+        let str2 = document.querySelector('p');
+        console.log(str2);
+
+        let id = document.querySelector("#titles");
+        console.log(id);
+        id.innerText = "good morning all have a nicy day";
+        console.log(id);
+
+        let head = document.getElementsByTagName("h1");
+        console.log(head);
+        for(let i =0; i < head.length; i++){
+            head[i].textContent = "Happy Birth Day";
+            head[i].style.color = "white";
+            head[i].style.textAlign = "center";
+            head[0].style.backgroundColor = "green";
+            head[1].style.backgroundColor = "red";
+            head[2].style.backgroundColor = "green";
+            head[3].style.backgroundColor = "blue";
+        }
+        console.log(head);
+
+
+        
+
+
+
+
+
+//CREATE ELEMENTS BY USING DOM
+
+let newPra = document.createElement("p");
+newPra.innerHTML = "Hi am new to the world";
+console.log(newPra);
+let body = document.querySelector("body");
+body.appendChild(newPra);
+console.log(body);
+
+let newHead = document.createElement("h1");
+newHead.innerHTML = "Good morning";
+console.log(newHead);
+
+let body1 = document.querySelector("body");
+body1.appendChild(newHead);
+console.log(body1);
+
+let newButton = document.createElement("button");
+newButton.innerHTML = "ReSet";
+console.log(newButton);
+let body2 = document.querySelector("body");
+body2.appendChild(newButton);
+console.log(body2);
+
+let box = document.querySelector("div");
+
+let para = document.createElement("h3");
+para.innerText ="This are my skills";
+box.appendChild(para);
+
+let btn = document.createElement("button");
+btn.innerHTML = "You are Selected";
+box.appendChild(btn);
+console.log(box);
+
+
+
+
+
+//REMOVE ELEMENTS BY USING DOM
+</script>
+</body>
