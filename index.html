@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
     <style>
+      body{
+        background-color: pink;
+      }
         h1{
             text-align: center;
             color: red;
@@ -16,7 +19,8 @@
         }
         .div{
             border: 2px green solid;
-            height: 200vh;
+            height: 290vh;
+            padding: 20px;
 
         }
         h2{
@@ -27,13 +31,13 @@
             font-size: 20px;
         }
         li{
-            color: rgb(255, 94, 0);
+            color: black;
         }
         p{
             color: green;
         }
         span{
-            color: rgb(255, 166, 0);
+            color: black;
         }
     </style>
     </head>
@@ -104,7 +108,7 @@ element.setAttribute("src", "new-image.jpg");  // Change the 'src' attribute
 element.removeAttribute("class");  // Remove the 'class' attribute
 </span>
 
-<h2>>Modifying Styles:</h2>
+<h2>Modifying Styles:</h2>
 <li>You can manipulate the CSS styles of elements.</li>
 
 <p>`style`**: Modifies the inline styles of an element.</p>
@@ -116,104 +120,59 @@ element.style.fontSize = "20px";  // Change font size to 20px
 
 <h2>Creating and Adding New Elements:</h2>
 <li>You can create new elements and add them to the DOM.</li>
-
-- **`document.createElement(tagName)`**: Creates a new element.
-- **`element.appendChild(child)`**: Adds a child element to an existing element.
-- **`element.insertBefore(newElement, referenceElement)`**: Inserts a new element before a reference element.
-
-```javascript
-let newDiv = document.createElement("div");
-newDiv.textContent = "I am a new div!";
+<p>document.createElement(tagName): Creates a new element. <br>
+element.appendChild(child): Adds a child element to an existing element. <br>
+element.insertBefore(newElement, referenceElement): Inserts a new element before a reference element. <br>
+</p>
+<p>
+let newDiv = document.createElement("div"); <br>
+newDiv.textContent = "I am a new div!"; <br>
 document.body.appendChild(newDiv);  // Add the new div to the body
-```
+</p>
 
-#### 6. **Removing Elements**:
-You can remove elements from the DOM.
+<h2>Removing Elements</h2>
+<li>You can remove elements from the DOM.</li>
 
-- **`parentElement.removeChild(child)`**: Removes a child element from the parent.
-- **`element.remove()`**: Removes the element from the DOM.
-
-```javascript
-let element = document.getElementById("removeMe");
+<p>parentElement.removeChild(child): Removes a child element from the parent.</p>
+<p>element.remove()`**: Removes the element from the DOM.</p>
+<p>
+let element = document.getElementById("removeMe"); <br>
 element.remove();  // Removes the element from the DOM
-```
+</p>
 
-#### 7. **Event Handling**:
-JavaScript can respond to user interactions by attaching event listeners to elements.
+<h2>Event Handling</h2>
+<li>JavaScript can respond to user interactions by attaching event listeners to elements.</li>
 
-- **`addEventListener(event, function)`**: Attaches an event listener to an element.
-- **`removeEventListener(event, function)`**: Removes an event listener from an element.
+<p>addEventListener(event, function): Attaches an event listener to an element.</p>
+<p>removeEventListener(event, function): Removes an event listener from an element.</p>
+<p>
+let button = document.getElementById("myButton"); <br>
 
-```javascript
-let button = document.getElementById("myButton");
+button.addEventListener("click", function() { <br>
+  alert("Button clicked!"); <br>
+}); <br>
 
-button.addEventListener("click", function() {
-  alert("Button clicked!");
-});
+button.removeEventListener("click", function() { <br>
+  alert("Button clicked!"); <br>
+}); br
+</p>
 
-button.removeEventListener("click", function() {
-  alert("Button clicked!");
-});
-```
+<h2>Traversing the DOM:</h2>
+<li>You can navigate through the DOM tree to access different elements.</li>
 
-#### 8. **Traversing the DOM**:
-You can navigate through the DOM tree to access different elements.
-
-- **`parentNode`**: Access the parent of an element.
-- **`childNodes`**: Access all child nodes (including text nodes).
-- **`firstChild` / `lastChild`**: Access the first or last child node.
-- **`nextSibling` / `previousSibling`**: Access the next or previous sibling element.
-
-```javascript
-let div = document.getElementById("container");
-let parent = div.parentNode;  // Get parent element
-let firstChild = div.firstChild;  // Get first child element
-let nextSibling = div.nextSibling;  // Get next sibling element
-```
-
-### Example: DOM Manipulation in Action
-Here’s a complete example where we:
-1. Create a new paragraph element.
-2. Add it to the DOM.
-3. Modify its content and style.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>DOM Example</title>
-</head>
-<body>
-  <h1>DOM Manipulation Example</h1>
-  <div id="content"></div>
-
-  <script>
-    // Create a new paragraph
-    let newPara = document.createElement("p");
-    
-    // Set the text content
-    newPara.textContent = "This is a dynamically created paragraph!";
-    
-    // Modify the style
-    newPara.style.color = "blue";
-    newPara.style.fontSize = "18px";
-    
-    // Append it to the div with id 'content'
-    let contentDiv = document.getElementById("content");
-    contentDiv.appendChild(newPara);
-  </script>
-</body>
-</html>
-```
-
-### Summary:
-- The DOM provides a way for JavaScript to access and manipulate the content, structure, and style of a web page.
-- JavaScript can modify the DOM in response to events, user input, and other actions, making web pages interactive and dynamic.
-- Understanding how to navigate, select, modify, and remove DOM elements is crucial for effective web development.
-
-Let me know if you'd like to dive deeper into any of these topics or need further examples!
+<li>`parentNode`**: Access the parent of an element. </li>
+<li>`childNodes`**: Access all child nodes (including text nodes). </li>
+<li>`firstChild` / `lastChild`**: Access the first or last child node. </li>
+<li>`nextSibling` / `previousSibling`**: Access the next or previous sibling element.</li>
+<p>
+let div = document.getElementById("container"); <br>
+let parent = div.parentNode;  // Get parent element <br>
+let firstChild = div.firstChild;  // Get first child element <br>
+let nextSibling = div.nextSibling;  // Get next sibling element <br>
+</p>
 </div>
+
+<h1><a href="./solveproblems.html">More</a></h1>
   </body>
  
 </html>
